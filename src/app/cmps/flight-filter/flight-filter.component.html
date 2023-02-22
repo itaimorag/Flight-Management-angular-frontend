@@ -1,0 +1,10 @@
+<section class="flight-filter flex column">
+    <section class="row1 flex space-between">
+        <div class="sub1 wrapper flex column">
+            <div class="flex align-center">
+                <span>Filter flights here:</span>
+            </div>
+            <input [(ngModel)]="filter" (ngModelChange)="onSetFilter()" type="text">
+        </div> 
+    </section>
+</section>
