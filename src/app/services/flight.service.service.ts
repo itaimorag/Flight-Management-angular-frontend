@@ -68,8 +68,9 @@ public setFilteredFlights() {
             flight.updates = utilService.getTimeDifference(newFlights[updatedFlightIdx].takeoffTime, flight.takeoffTime)
         }
         newFlights[updatedFlightIdx] = flight
-        this._flights$.next([...newFlights])
-        
+        // console.log(`newFlights = `, newFlights)
+        this._flights$.next(JSON.parse(JSON.stringify(newFlights)))
+        this.setFilteredFlights()
     }
 }
   public setFilter(newFilter: string) {

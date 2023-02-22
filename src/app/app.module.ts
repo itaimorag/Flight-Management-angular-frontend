@@ -14,6 +14,11 @@ import { StopsPipe } from './pipes/stops.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 import { CeilPipe } from './pipes/ceil.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableComponent } from './cmps/table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormatDatePipe,
     FetchDataPipe,
     CeilPipe,
+    TableComponent,
+    
     
   ],
   imports: [
@@ -35,6 +42,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

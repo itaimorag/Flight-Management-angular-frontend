@@ -1,4 +1,4 @@
-// import moment from 'moment';
+import * as moment from 'moment';
 
 export const utilService = {
   makeId,
@@ -9,15 +9,12 @@ export const utilService = {
 
 function getTimeDifference(dateString1: string, dateString2: string): string {
   const format = 'MM/DD/YYYY - HH:mm';
-  // const date1 = moment(dateString1, format);
-  // const date2 = moment(dateString2, format);
+  const date1 = moment(dateString1, format);
+  const date2 = moment(dateString2, format);
   let diffInMinutes: string | number = 0;
-  // if (date1.isSame(date2, 'day')) diffInMinutes = Math.abs(date2.diff(date1, 'minutes'));
-  if(dateString1.substring(0,2)===dateString2.substring(0,2)){
+  if (date1.isSame(date2, 'day')) diffInMinutes = Math.abs(date2.diff(date1, 'minutes'));
 
-    diffInMinutes = ((+dateString2.substring(12,15))-(+dateString1.substring(12,15))*60)+((+dateString2.substring(16))-(+dateString1.substring(16)))
-  }
-  // else {
+  else {
     //sometimes the moment library probably doesnt transform to milseconds correctly so i did the math on my own
     dateString1 = dateString1.substring(12)
     dateString2 = dateString2.substring(12)
@@ -28,7 +25,7 @@ function getTimeDifference(dateString1: string, dateString2: string): string {
     let num1 = ((+hours1 * 60) + (+mins1)) - (24 * 60)
     let num2 = (+hours2 * 60) + (+mins2)
     diffInMinutes = (num2 - num1)
-  // }
+  }
   diffInMinutes = 'Flight delayed by ' + diffInMinutes + ' minutes'
   return diffInMinutes;
 }

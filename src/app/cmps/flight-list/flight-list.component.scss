@@ -1,13 +1,20 @@
 .flight-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(750px, 1fr));
-    gap: 16px;
+    background-color: #ffffff;
 
-    .no-results{
-        margin-top: 16vh;
-
-        div{
-            text-align: center;
-        }
+    color: black;
+    padding: 5px 10px;
+    margin:0 auto ;
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
     }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    @media (min-width:1700px) {
+          min-width: 1270px;
+        
+      }
 }

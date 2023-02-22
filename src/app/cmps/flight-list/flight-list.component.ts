@@ -14,4 +14,7 @@ export class FlightListComponent implements OnInit {
 ngOnInit(){
 console.log(`flights = `, this.flights)
 }
+trackByFlightId(index: number, flight: FlightModel): string {
+  return flight.flightNumber;
+}
 }

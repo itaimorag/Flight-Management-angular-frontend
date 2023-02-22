@@ -28,7 +28,6 @@ export class AppComponent implements OnInit {
   }
 
   setFilter(newFilter:string){
-    console.log(`newFilter = `, newFilter)
     this.flightService.setFilter(newFilter )
   }
 

@@ -12,8 +12,9 @@
                 </tr>
             </thead>
             <tbody>
-
-                <flight-preview *ngFor="let flight of flights" [flight]="flight"></flight-preview>
+             
+                    <flight-preview *ngFor="let flight of flights; trackBy: trackByFlightId" [flight]="flight"></flight-preview>
+                
             </tbody>
         </table>
     </div>
