@@ -41,14 +41,12 @@ public setFilteredFlights() {
   public query() {
        this.http.get<any>('//localhost:3030/flights')
         .pipe(
-          // tap(res=>console.log(`res = `, res)),
-          // tap(res=>this._flights$.next(res)),
           catchError((err: HttpErrorResponse) => {
             console.log('err:', err)
             return throwError(() => err)
           })
         ).subscribe(res=>{
-          console.log(`res = `, res.flights)
+          console.log(`res = `, res)
           this._flights$.next([...res.flights])
           this.setFilteredFlights()
         })

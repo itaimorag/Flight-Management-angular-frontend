@@ -14,7 +14,6 @@ import { StopsPipe } from './pipes/stops.pipe';
 import { FormatDatePipe } from './pipes/format-date.pipe';
 import { CeilPipe } from './pipes/ceil.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DisplayTableComponent } from './cmps/display-table/display-table.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { DisplayTableComponent } from './cmps/display-table/display-table.compon
     FormatDatePipe,
     FetchDataPipe,
     CeilPipe,
-    DisplayTableComponent
+    
   ],
   imports: [
     BrowserModule,

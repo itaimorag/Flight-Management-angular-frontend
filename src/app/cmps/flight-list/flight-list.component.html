@@ -1,5 +1,22 @@
 <section class="flight-list">
-    <flight-preview *ngFor="let flight of flights" [flight]="flight"></flight-preview>
+    <div *ngIf="flights?.length">
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight Number</th>
+                    <th>Status</th>
+                    <th>Takeoff Time</th>
+                    <th>Landing Time</th>
+                    <th>Takeoff Airport</th>
+                    <th>Landing Airport</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <flight-preview *ngFor="let flight of flights" [flight]="flight"></flight-preview>
+            </tbody>
+        </table>
+    </div>
     <div *ngIf="!flights?.length" class="no-results flex align-center center">
         <div>
             <h2>No results for the specified filter,</h2>

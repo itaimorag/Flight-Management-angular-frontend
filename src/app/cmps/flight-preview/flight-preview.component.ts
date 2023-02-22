@@ -8,4 +8,20 @@ import { FlightModel } from 'src/app/models/flight.model';
 })
 export class FlightPreviewComponent {
   @Input() flight!:FlightModel
+
+  getColor(status:string) {
+    switch (status) {
+      case 'hangar':
+          return 'blue';
+      
+      case 'airborne':
+        return 'green';
+         
+      case 'malfunction':
+        return 'red';
+          
+      default:
+        return 'red';
+  }
+}
 }
