@@ -9,12 +9,21 @@
                     <th>Landing Time</th>
                     <th>Takeoff Airport</th>
                     <th>Landing Airport</th>
+                    <th>Updates</th>
                 </tr>
             </thead>
             <tbody>
-             
-                    <flight-preview *ngFor="let flight of flights; trackBy: trackByFlightId" [flight]="flight"></flight-preview>
-                
+             <tr *ngFor="let flight of flights; trackBy: trackByFlightId">
+                <td>{{flight.flightNumber}}</td>
+                <td [style.color]="getColor(flight.status)">{{flight.status}}</td>
+                <td>{{flight.takeoffTime}}</td>
+                <td>{{flight.landingTime}}</td>
+                <td>{{flight.takeoffAirport}}</td>
+                <td>{{flight.landingAirport}}</td>
+                <td *ngIf="flight.updates">{{flight.updates}}</td>
+                 <!-- <flight-preview *ngFor="let flight of flights; trackBy: trackByFlightId" [flight]="flight"></flight-preview> -->
+                 
+                </tr>
             </tbody>
         </table>
     </div>
