@@ -1,4 +1,4 @@
-import { AfterViewInit,Input,ChangeDetectorRef, Component, ViewChild, OnChanges, SimpleChanges  } from '@angular/core';
+import {Input, Component, ViewChild, OnChanges, SimpleChanges  } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -10,7 +10,7 @@ import { TableDataSource, TableItem } from './table-datasource';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit,OnChanges  {
+export class TableComponent implements OnChanges  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<TableItem>;
@@ -20,22 +20,33 @@ export class TableComponent implements AfterViewInit,OnChanges  {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['flightNumber', 'status', 'takeoffTime', 'landingTime', 'takeoffAirport', 'landingAirport', 'updates'];
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
-  }
   ngOnChanges(changes: SimpleChanges) {
     if ('flights' in changes) {
-  setInterval(() => {
-    this.dataSource = new TableDataSource();
+      this.dataSource = new TableDataSource();
     this.dataSource.data=this.flights!
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
-  }, 100);
-// }
-    
     }
   }
-  ngAfterViewInit(): void {
 
+  getColor(status:string) {
+    switch (status) {
+      case 'hangar':
+          return 'blue';
+      
+      case 'airborne':
+        return 'green';
+         
+      case 'malfunction':
+        return 'red';
+          
+      default:
+        return 'red';
+  }
+  }
+  getBackgroundColor(updates:string|null){
+    if(updates) return  'rgba(255, 255, 0, 0.321)';
+    return  'white'
   }
 }

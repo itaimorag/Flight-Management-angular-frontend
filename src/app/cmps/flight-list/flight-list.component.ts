@@ -1,24 +1,15 @@
-import { Component, Input,OnInit,OnChanges,SimpleChanges } from '@angular/core';
+import { Component,ChangeDetectionStrategy, Input } from '@angular/core';
 import { FlightModel } from 'src/app/models/flight.model';
-
-
 @Component({
   selector: 'flight-list',
   templateUrl: './flight-list.component.html',
-  styleUrls: ['./flight-list.component.scss']
+  styleUrls: ['./flight-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FlightListComponent implements OnInit,OnChanges {
+export class FlightListComponent  {
 @Input() flights!:FlightModel[]|null
 
 
-ngOnInit(){
-console.log(`flights = `, this.flights)
-}
-ngOnChanges(changes: SimpleChanges) {
-  if ('flights' in changes) {
-    console.log(`foo = `)
-  }
-}
 trackByFlightId(index: number, flight: FlightModel): string {
   return flight.flightNumber;
 }

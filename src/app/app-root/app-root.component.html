@@ -2,10 +2,9 @@
   <app-header></app-header>
  <main class="main-container">
     <flight-filter [filter]="filter$| async" (setFilter)="setFilter($event)" ></flight-filter>
-    <!-- <flight-filter [filterRanges]="filterRanges$" (setFilter)="setFilter($event)" ></flight-filter> -->
     <div class="app-table-container">
       <app-table *ngIf="flights$| async" [flights]="flights$| async"></app-table>
     </div>
-    <!-- <flight-list *ngIf="flights" [flights]="flights"></flight-list> -->
+    <!-- <flight-list [flights]="flights$| async"></flight-list> -->
   </main>
 </section>

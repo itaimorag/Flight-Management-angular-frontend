@@ -20,7 +20,7 @@
                 <td>{{flight.landingTime}}</td>
                 <td>{{flight.takeoffAirport}}</td>
                 <td>{{flight.landingAirport}}</td>
-                <td *ngIf="flight.updates">{{flight.updates}}</td>
+                <td *ngIf="flight.updates" class="updates">{{flight.updates}}</td>
                  <!-- <flight-preview *ngFor="let flight of flights; trackBy: trackByFlightId" [flight]="flight"></flight-preview> -->
                  
                 </tr>
