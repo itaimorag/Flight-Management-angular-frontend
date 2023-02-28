@@ -23,10 +23,10 @@ export class TableComponent implements OnChanges  {
   ngOnChanges(changes: SimpleChanges) {
     if ('flights' in changes) {
       this.dataSource = new TableDataSource();
-    this.dataSource.data=this.flights!
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+      this.dataSource.data=this.flights!
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      if(this.dataSource?.data.length) this.table.dataSource = this.dataSource;
     }
   }
 
